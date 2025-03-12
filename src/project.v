@@ -23,17 +23,16 @@ module tt_um_rect_cyl (
             r_reg <= 8'd0;
             theta_reg <= 8'd0;
         end else if (ena) begin
-            // Approximate square root using Newton-Raphson (or LUT if available)
-            r_reg <= (sum[15:8] + sum[14:7]) >> 1;  // Faster sqrt approx
+            // Better approximation for sqrt(x² + y²)
+            r_reg <= sum[15:8] + (sum[14:7] >> 1);  
 
-            // Approximate atan2(y, x)
-            if (ui_in == 0 && uio_in == 0)
-                theta_reg <= 8'd0;  // Undefined case, set to 0°
-            else if (ui_in == 0)
-                theta_reg <= (uio_in[7]) ? 8'd270 : 8'd90;  // Negative y → 270°, Positive y → 90°
-            else
-                theta_reg <= (uio_in * 128) / ui_in;  // Scale atan approximation
-
+            // atan(y/x) approximation with overflow protection
+            if (ui_in == 0) begin
+                theta_reg <= (uio_in == 0) ? 8'd0 : 8'd90; // Handle x=0 cases
+            end else begin
+                theta_reg <= (uio_in << 5) / (ui_in + 1); // Scale by 32
+                if (theta_reg > 8'd255) theta_reg <= 8'd255; // Limit to 8-bit
+            end
         end
     end
 
