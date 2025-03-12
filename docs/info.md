@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-This project implements a Half Adder, a basic combinational circuit that adds two binary digits (A and B). The outputs are:
+This project implements a Rectangular to Cylindrical Coordinate Converter. It takes Cartesian coordinates (x, y) as inputs and outputs the corresponding cylindrical coordinates (r, θ).
 
 Sum (S) = A ⊕ B (XOR operation)
 Carry (Cout) = A & B (AND operation)
@@ -23,16 +23,15 @@ A	B	Sum (A ⊕ B)	Carry (A & B)
 
 ## How to test
 
-Power up the design (Tiny Tapeout environment).
-Provide two binary inputs (A and B) via the ui_in pins:
-ui_in[0] → A (First input bit)
-ui_in[1] → B (Second input bit)
-Check the outputs (uo_out):
-uo_out[0] → Sum (A ⊕ B)
-uo_out[1] → Carry (A & B)
-Verify the output against the expected truth table.
-
+1.Power up the design (Tiny Tapeout environment).
+2.Provide inputs (ui_in and uio_in) via the pins:
+   ui_in[7:0] → x-coordinate
+   uio_in[7:0] → y-coordinate
+3.Check the outputs (uo_out and uio_out):
+   uo_out[7:0] → Radius (r)
+   uio_out[7:0] → Theta (θ, scaled to 8-bit)
+4.Verify results using the formulas above.
 
 ## External hardware
 
-No external hardware is required; all logic is implemented in the Verilog module.
+No external hardware is required; all calculations are performed within the Verilog module using CORDIC-based computation for r and θ.
