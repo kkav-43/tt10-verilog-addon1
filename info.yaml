@@ -17,7 +17,7 @@ project:
     - "project.v"
 
 pinout:
-  # Inputs
+  # Inputs (Cartesian X values)
   ui[0]: "x[0]"
   ui[1]: "x[1]"
   ui[2]: "x[2]"
@@ -27,7 +27,7 @@ pinout:
   ui[6]: "x[6]"
   ui[7]: "x[7]"
 
-  # Outputs
+  # Outputs (Cylindrical R values)
   uo[0]: "r[0]"
   uo[1]: "r[1]"
   uo[2]: "r[2]"
@@ -37,7 +37,7 @@ pinout:
   uo[6]: "r[6]"
   uo[7]: "r[7]"
 
-  # Bidirectional pins (for theta output & IO enable)
+  # Bidirectional Pins (Y values, Theta output, and Control Signals)
   uio[0]: "y[0]"
   uio[1]: "y[1]"
   uio[2]: "y[2]"
@@ -46,10 +46,16 @@ pinout:
   uio[5]: "y[5]"
   uio[6]: "y[6]"
   uio[7]: "y[7]"
-
-  # Control Signals
-  ui[8]:  "clk"     # Clock signal
-  ui[9]:  "rst_n"   # Active-low reset
-  ui[10]: "ena"     # Enable signal
+  uio[8]: "theta[0]"  # Angle output
+  uio[9]: "theta[1]"
+  uio[10]: "theta[2]"
+  uio[11]: "theta[3]"
+  uio[12]: "theta[4]"
+  uio[13]: "theta[5]"
+  uio[14]: "theta[6]"
+  uio[15]: "theta[7]"
+  uio[16]: "clk"      # Clock signal
+  uio[17]: "rst_n"    # Active-low reset
+  uio[18]: "ena"      # Enable signal
 
 yaml_version: 6
