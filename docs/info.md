@@ -11,14 +11,11 @@ You can also include images in this folder and reference them in the markdown. E
 
 This project implements a Rectangular to Cylindrical Coordinate Converter. It takes Cartesian coordinates (x, y) as inputs and outputs the corresponding cylindrical coordinates (r, θ).
 
-Sum (S) = A ⊕ B (XOR operation)
-Carry (Cout) = A & B (AND operation)
-Truth Table
-A	B	Sum (A ⊕ B)	Carry (A & B)
-0	0	0	0
-0	1	1	0
-1	0	1	0
-1	1	0	1
+Mathematical Computation:
+
+  Radius (r) Calculation: : r=√(𝑥^2+𝑦^2 )
+  Theta (θ) Approximation : 𝜃=𝑡𝑎𝑛^-1 (𝑦/𝑥)
+The angle is scaled to an 8-bit representation.
 
 
 ## How to test
