@@ -1,17 +1,17 @@
 # Tiny Tapeout project information
 project:
-  title:        "HALF ADDDER DEMO"      # Project title
+  title:        "Rectangular to Cylindrical Converter"      # Project title
   author:       "KARTHIK"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "PERFORMS HA"      # One line description of what your project does
+  description:  "Converts Cartesian coordinates (x, y) to cylindrical (r, theta)"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     100000000       # Clock frequency in Hz (100MHz)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_addon"
+  top_module:  "tt_um_rect_cyl"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -23,34 +23,34 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "a"
-  ui[1]: "b"
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
+  ui[0]: "x[0]"
+  ui[1]: "x[1]"
+  ui[2]: "x[2]"
+  ui[3]: "x[3]"
+  ui[4]: "x[4]"
+  ui[5]: "x[5]"
+  ui[6]: "x[6]"
+  ui[7]: "x[7]"
 
   # Outputs
-  uo[0]: "sum"
-  uo[1]: "carry"
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "r[0]"
+  uo[1]: "r[1]"
+  uo[2]: "r[2]"
+  uo[3]: "r[3]"
+  uo[4]: "r[4]"
+  uo[5]: "r[5]"
+  uo[6]: "r[6]"
+  uo[7]: "r[7]"
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "y[0]"
+  uio[1]: "y[1]"
+  uio[2]: "y[2]"
+  uio[3]: "y[3]"
+  uio[4]: "y[4]"
+  uio[5]: "y[5]"
+  uio[6]: "y[6]"
+  uio[7]: "y[7]"
 
 # Do not change!
 yaml_version: 6
